@@ -1,0 +1,298 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.13f1 (71691879b7f5) revision 7432472'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19043.1586; Version 2009; 64bit' Language: 'en' Physical Memory: 7880 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.13f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+C:/Users/novak/Documents/GitHub/Achilleus-Rex/AchilleusRex2
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+57420
+Successfully changed project path to: C:/Users/novak/Documents/GitHub/Achilleus-Rex/AchilleusRex2
+C:/Users/novak/Documents/GitHub/Achilleus-Rex/AchilleusRex2
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 254.26 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.13f1 (71691879b7f5)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/novak/Documents/GitHub/Achilleus-Rex/AchilleusRex2/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) Iris(R) Plus Graphics (ID=0x8a52)
+    Vendor:   
+    VRAM:     3940 MB
+    Driver:   26.20.100.7926
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56356
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003461 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 100.95 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.803 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.009185 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 110.57 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in 14.885 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
+Refreshing native plugins compatible for Editor in 0.61 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2073 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.0 MB.
+System memory in use after: 108.0 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2525.
+Total: 5.847900 ms (FindLiveObjects: 0.443700 ms CreateObjectMapping: 0.218500 ms MarkObjects: 4.989100 ms  DeleteObjects: 0.193900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4
+  artifactKey: Guid(9274cff84a82f5c499728abcf2b1c940) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4 using Guid(9274cff84a82f5c499728abcf2b1c940) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '640c6c6c77ede3466fa341d48e1f800d') in 0.021507 seconds 
+  Import took 0.030368 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000676 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/M_sword_01.mat
+  artifactKey: Guid(afc35bd692d26df4a831508b0e474de8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/M_sword_01.mat using Guid(afc35bd692d26df4a831508b0e474de8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52d7a3a3ba686d797e436312d5c8e470') in 0.438304 seconds 
+  Import took 0.453474 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000295 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1
+  artifactKey: Guid(885b8494aefc1ee479d15abfcb51b1ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1 using Guid(885b8494aefc1ee479d15abfcb51b1ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '538662a8f3e189a635d66724e4ecec0a') in 0.014407 seconds 
+  Import took 0.022917 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000328 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/TX_sword_01_normal.png
+  artifactKey: Guid(97a2ddb6e35912a498dd00e655d78356) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/TX_sword_01_normal.png using Guid(97a2ddb6e35912a498dd00e655d78356) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a18a45b0d32a1da6f97628db35b40828') in 0.203655 seconds 
+  Import took 0.218414 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000546 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons
+  artifactKey: Guid(bb8cf28d260350f4c8d76035d42cba5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons using Guid(bb8cf28d260350f4c8d76035d42cba5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36e0775a5966aaaeee1a9eefd77b3c62') in 0.016137 seconds 
+  Import took 0.028476 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000598 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/sword_1.fbx
+  artifactKey: Guid(1958875ebe8c50b4b9cca36e96b6102d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/sword_1.fbx using Guid(1958875ebe8c50b4b9cca36e96b6102d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a566c6381f2f1636eed5055fc463a862') in 0.355271 seconds 
+  Import took 0.377175 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000594 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons
+  artifactKey: Guid(5cdd5832ef833184a894285d0cd3afc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons using Guid(5cdd5832ef833184a894285d0cd3afc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c28b1c03167362e25983507f47fc42e') in 0.017433 seconds 
+  Import took 0.031113 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000375 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/TX_sword_01_metallic.png
+  artifactKey: Guid(9c214c91c9698cc4c85ccb50a2c43840) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/TX_sword_01_metallic.png using Guid(9c214c91c9698cc4c85ccb50a2c43840) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef6596dce824392672127dfc0d1b0c89') in 0.083644 seconds 
+  Import took 0.102184 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000969 seconds.
+  path: Assets/TriForge Assets
+  artifactKey: Guid(6209448afe2804b4c95b7c3bf97365d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets using Guid(6209448afe2804b4c95b7c3bf97365d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28fd6a70f073a755563f9dc6907eee17') in 0.017557 seconds 
+  Import took 0.029784 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000425 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/PREF_sword_1.prefab
+  artifactKey: Guid(55feeb2fdb3db834c90d4cc1a54a5b6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/PREF_sword_1.prefab using Guid(55feeb2fdb3db834c90d4cc1a54a5b6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8dd40e9d122d649a64a6f46c070aa899') in 0.270031 seconds 
+  Import took 0.292695 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000793 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/TX_sword_01_albedo.png
+  artifactKey: Guid(2733086374467294493374308b07b695) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/TX_sword_01_albedo.png using Guid(2733086374467294493374308b07b695) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35da02096b935e185db66040797a29fd') in 0.056991 seconds 
+  Import took 0.073911 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000420 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/TX_sword_01_ao.png
+  artifactKey: Guid(29e76ce412d5239429d7f27ee44ea6ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/TX_sword_01_ao.png using Guid(29e76ce412d5239429d7f27ee44ea6ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05b039cf1a987eb6f056cd353a623171') in 0.055388 seconds 
+  Import took 0.064372 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000353 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/TX_sword_01_albedo.png
+  artifactKey: Guid(2733086374467294493374308b07b695) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/TX_sword_01_albedo.png using Guid(2733086374467294493374308b07b695) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35da02096b935e185db66040797a29fd') in 0.071587 seconds 
+  Import took 0.082651 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000325 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/TX_sword_01_ao.png
+  artifactKey: Guid(29e76ce412d5239429d7f27ee44ea6ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Sword_1/TX_sword_01_ao.png using Guid(29e76ce412d5239429d7f27ee44ea6ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05b039cf1a987eb6f056cd353a623171') in 0.043907 seconds 
+  Import took 0.053241 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 8.42 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 70.7 MB.
+System memory in use after: 70.8 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 2571.
+Total: 8.340800 ms (FindLiveObjects: 0.653300 ms CreateObjectMapping: 0.268800 ms MarkObjects: 7.261700 ms  DeleteObjects: 0.154400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 821.825888 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4/axe_4.fbx
+  artifactKey: Guid(c832206d1bbde7f4eb656810fc90effe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4/axe_4.fbx using Guid(c832206d1bbde7f4eb656810fc90effe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f32d56ac866c3af346f307b78a1cd8e') in 0.299698 seconds 
+  Import took 0.319690 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000407 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4/TX_axe_4_normal.png
+  artifactKey: Guid(39613d91fe598624b9c46900639c1592) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4/TX_axe_4_normal.png using Guid(39613d91fe598624b9c46900639c1592) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a82e01d6d4a7523a700ecb0c6a858310') in 0.118303 seconds 
+  Import took 0.129281 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000398 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4/TX_axe_4_metallic.png
+  artifactKey: Guid(5a3b4c25f8b07544a84c67e1e5ed8f17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4/TX_axe_4_metallic.png using Guid(5a3b4c25f8b07544a84c67e1e5ed8f17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93dd17cccce8e31762166ef046b281ec') in 0.115415 seconds 
+  Import took 0.127926 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000837 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4/TX_axe_4_albedo.png
+  artifactKey: Guid(ec718881c2d59e24ba55acae1b573162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4/TX_axe_4_albedo.png using Guid(ec718881c2d59e24ba55acae1b573162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bb5a90018f9b39adffd9f3427ca3566') in 0.087918 seconds 
+  Import took 0.109955 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001554 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4/TX_axe_4_ao.png
+  artifactKey: Guid(8dacf55c5d395184c9615e9107f2dc25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4/TX_axe_4_ao.png using Guid(8dacf55c5d395184c9615e9107f2dc25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43fd4ebd982e53c07b02ea814b8c268f') in 0.075641 seconds 
+  Import took 0.088207 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000645 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4/M_axe_4.mat
+  artifactKey: Guid(d4ed5c0a6f70c1544832b1eded1f998c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4/M_axe_4.mat using Guid(d4ed5c0a6f70c1544832b1eded1f998c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3c37f9a6f010927b3bf0f9f05c3c665') in 0.187088 seconds 
+  Import took 0.205491 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000375 seconds.
+  path: Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4/PREF_axe_4.prefab
+  artifactKey: Guid(cc7605c58a8807d48bc1b6b6a6032de3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TriForge Assets/Medieval Weapons/Weapons/Axe_4/PREF_axe_4.prefab using Guid(cc7605c58a8807d48bc1b6b6a6032de3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ceb1d5752b55c80d3995e10c5865f64') in 0.283124 seconds 
+  Import took 0.304455 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.011760 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.842 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.70 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2066 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 111.2 MB.
+System memory in use after: 111.3 MB.
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 2574.
+Total: 5.146900 ms (FindLiveObjects: 0.285300 ms CreateObjectMapping: 0.131100 ms MarkObjects: 4.537300 ms  DeleteObjects: 0.191400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
