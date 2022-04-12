@@ -36,7 +36,7 @@ public class LookAtNearby : MonoBehaviour
         }
         
         Vector3 targetPosition;
-        Debug.Log(pointOfInterest);
+        //Debug.Log(pointOfInterest);
         if (pointOfInterest != null)
         {
             //GameObject.Find("AimTarget").SetActive(true);

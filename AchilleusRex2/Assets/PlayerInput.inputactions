@@ -36,6 +36,30 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "LockOn",
+                    "type": "Button",
+                    "id": "0bccd979-0c93-4d78-8c93-2596f416d007",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Lock On Target Left",
+                    "type": "Button",
+                    "id": "922c60d6-0e6d-475b-bc3e-4a38f0a99147",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Lock On Target Right",
+                    "type": "Button",
+                    "id": "bd38d80d-880e-4943-994d-984b32f0bcb7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -44,7 +68,7 @@
                     "id": "51146051-227f-4278-bc51-2e717b2d56ab",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
-                    "processors": "StickDeadzone(max=0.499)",
+                    "processors": "StickDeadzone(min=0.125,max=0.499)",
                     "groups": "",
                     "action": "Walk",
                     "isComposite": false,
@@ -146,6 +170,72 @@
                     "processors": "",
                     "groups": "",
                     "action": "Run 2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bd1f115b-fee7-49e5-aa0a-51fbd933351f",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LockOn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "baebbb96-a8d2-46aa-a980-8e6bc19172f7",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LockOn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b30f688-a309-4799-89e4-f4b0833afdde",
+                    "path": "<Gamepad>/rightStick/left",
+                    "interactions": "Tap(duration=0.2,pressPoint=1)",
+                    "processors": "AxisDeadzone(min=0.1,max=1)",
+                    "groups": "",
+                    "action": "Lock On Target Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb8dd038-4a1f-4dc5-af22-cbdcf0d210f7",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Lock On Target Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fc4e1d60-1ef1-4c79-936d-c063758e8fcd",
+                    "path": "<Gamepad>/rightStick/right",
+                    "interactions": "Tap(duration=0.2,pressPoint=1)",
+                    "processors": "AxisDeadzone(min=0.1,max=1)",
+                    "groups": "",
+                    "action": "Lock On Target Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b00153b5-26a1-4529-bd1f-d7c8db67a299",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "New control scheme",
+                    "action": "Lock On Target Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

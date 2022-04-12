@@ -3,7 +3,7 @@
   "Assemblies": [
     {
       "FullName": "Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-03-27T16:52:44.0896025Z"
+      "LastWriteTime": "2022-04-12T18:31:15.5596057Z"
     },
     {
       "FullName": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
@@ -19,7 +19,7 @@
     },
     {
       "FullName": "Unity.Animation.Rigging, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-03-27T16:52:45.676006Z"
+      "LastWriteTime": "2022-04-12T18:31:17.5288778Z"
     },
     {
       "FullName": "mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
@@ -34,7 +34,7 @@
     {
       "FullName": "System.Int32 Unity.Burst.Intrinsics.X86::DoGetCSRTrampoline()",
       "ModuleOptionsHash": 8794384452606821980,
-      "ModuleHash": "55fd3cbaeba4240449c57fca1560cff5",
+      "ModuleHash": "1b579af4a213d017cd20e1e017e1f45a",
       "LinkName": "CDCA4A5193BE5947",
       "AssemblyDependencyIndices": [
         0,
@@ -45,7 +45,7 @@
     {
       "FullName": "System.Void Unity.Burst.Intrinsics.X86::DoSetCSRTrampoline(System.Int32)",
       "ModuleOptionsHash": 8794384452606821980,
-      "ModuleHash": "7df869a857730ccd64c664d2fa337b9b",
+      "ModuleHash": "d058679852b218e2f4380bb453959080",
       "LinkName": "801E9A000BB37B05",
       "AssemblyDependencyIndices": [
         0,
@@ -56,7 +56,7 @@
     {
       "FullName": "System.Void UnityEngine.Animations.ProcessAnimationJobStruct`1<UnityEngine.Animations.Rigging.MultiAimConstraintJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
       "ModuleOptionsHash": 8794384452606821980,
-      "ModuleHash": "cb4d83fec852b2e05546012ba3f2f099",
+      "ModuleHash": "c73a4bf13fab12b6190f503f8114240e",
       "LinkName": "FCB60251D6B64A75",
       "AssemblyDependencyIndices": [
         3,
@@ -70,7 +70,7 @@
     {
       "FullName": "System.Void UnityEngine.Animations.ProcessAnimationJobStruct`1<UnityEngine.Animations.Rigging.RigSyncSceneToStreamJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
       "ModuleOptionsHash": 8794384452606821980,
-      "ModuleHash": "e99382a5a0c7f1f479c45230605f0d75",
+      "ModuleHash": "3736c72c8b536bacd5e4ccdea029ef24",
       "LinkName": "BC91ACAA17E251EE",
       "AssemblyDependencyIndices": [
         3,

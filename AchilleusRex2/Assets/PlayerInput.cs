@@ -49,6 +49,30 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""LockOn"",
+                    ""type"": ""Button"",
+                    ""id"": ""0bccd979-0c93-4d78-8c93-2596f416d007"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Lock On Target Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""922c60d6-0e6d-475b-bc3e-4a38f0a99147"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Lock On Target Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""bd38d80d-880e-4943-994d-984b32f0bcb7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -57,7 +81,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""id"": ""51146051-227f-4278-bc51-2e717b2d56ab"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": ""StickDeadzone(max=0.499)"",
+                    ""processors"": ""StickDeadzone(min=0.125,max=0.499)"",
                     ""groups"": """",
                     ""action"": ""Walk"",
                     ""isComposite"": false,
@@ -161,6 +185,72 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""Run 2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd1f115b-fee7-49e5-aa0a-51fbd933351f"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LockOn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""baebbb96-a8d2-46aa-a980-8e6bc19172f7"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LockOn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8b30f688-a309-4799-89e4-f4b0833afdde"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": ""Tap(duration=0.2,pressPoint=1)"",
+                    ""processors"": ""AxisDeadzone(min=0.1,max=1)"",
+                    ""groups"": """",
+                    ""action"": ""Lock On Target Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb8dd038-4a1f-4dc5-af22-cbdcf0d210f7"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Lock On Target Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fc4e1d60-1ef1-4c79-936d-c063758e8fcd"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": ""Tap(duration=0.2,pressPoint=1)"",
+                    ""processors"": ""AxisDeadzone(min=0.1,max=1)"",
+                    ""groups"": """",
+                    ""action"": ""Lock On Target Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b00153b5-26a1-4529-bd1f-d7c8db67a299"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""New control scheme"",
+                    ""action"": ""Lock On Target Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -173,6 +263,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_CharacterControls_Run = m_CharacterControls.FindAction("Run", throwIfNotFound: true);
         m_CharacterControls_Run2 = m_CharacterControls.FindAction("Run 2", throwIfNotFound: true);
         m_CharacterControls_Jump = m_CharacterControls.FindAction("Jump", throwIfNotFound: true);
+        m_CharacterControls_LockOn = m_CharacterControls.FindAction("LockOn", throwIfNotFound: true);
+        m_CharacterControls_LockOnTargetLeft = m_CharacterControls.FindAction("Lock On Target Left", throwIfNotFound: true);
+        m_CharacterControls_LockOnTargetRight = m_CharacterControls.FindAction("Lock On Target Right", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -226,6 +319,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_CharacterControls_Run;
     private readonly InputAction m_CharacterControls_Run2;
     private readonly InputAction m_CharacterControls_Jump;
+    private readonly InputAction m_CharacterControls_LockOn;
+    private readonly InputAction m_CharacterControls_LockOnTargetLeft;
+    private readonly InputAction m_CharacterControls_LockOnTargetRight;
     public struct CharacterControlsActions
     {
         private @PlayerInput m_Wrapper;
@@ -234,6 +330,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         public InputAction @Run => m_Wrapper.m_CharacterControls_Run;
         public InputAction @Run2 => m_Wrapper.m_CharacterControls_Run2;
         public InputAction @Jump => m_Wrapper.m_CharacterControls_Jump;
+        public InputAction @LockOn => m_Wrapper.m_CharacterControls_LockOn;
+        public InputAction @LockOnTargetLeft => m_Wrapper.m_CharacterControls_LockOnTargetLeft;
+        public InputAction @LockOnTargetRight => m_Wrapper.m_CharacterControls_LockOnTargetRight;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -255,6 +354,15 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnJump;
+                @LockOn.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnLockOn;
+                @LockOn.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnLockOn;
+                @LockOn.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnLockOn;
+                @LockOnTargetLeft.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnLockOnTargetLeft;
+                @LockOnTargetLeft.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnLockOnTargetLeft;
+                @LockOnTargetLeft.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnLockOnTargetLeft;
+                @LockOnTargetRight.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnLockOnTargetRight;
+                @LockOnTargetRight.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnLockOnTargetRight;
+                @LockOnTargetRight.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnLockOnTargetRight;
             }
             m_Wrapper.m_CharacterControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -271,6 +379,15 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @LockOn.started += instance.OnLockOn;
+                @LockOn.performed += instance.OnLockOn;
+                @LockOn.canceled += instance.OnLockOn;
+                @LockOnTargetLeft.started += instance.OnLockOnTargetLeft;
+                @LockOnTargetLeft.performed += instance.OnLockOnTargetLeft;
+                @LockOnTargetLeft.canceled += instance.OnLockOnTargetLeft;
+                @LockOnTargetRight.started += instance.OnLockOnTargetRight;
+                @LockOnTargetRight.performed += instance.OnLockOnTargetRight;
+                @LockOnTargetRight.canceled += instance.OnLockOnTargetRight;
             }
         }
     }
@@ -281,5 +398,8 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnRun2(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnLockOn(InputAction.CallbackContext context);
+        void OnLockOnTargetLeft(InputAction.CallbackContext context);
+        void OnLockOnTargetRight(InputAction.CallbackContext context);
     }
 }
