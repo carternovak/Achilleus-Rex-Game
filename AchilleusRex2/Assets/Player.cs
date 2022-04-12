@@ -1,33 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-<<<<<<< Updated upstream
-    [SerializeField] private float moveSpeed = 1;
-    [SerializeField] private float lookSensitivity = 5;
-    [SerializeField] private float jumpHeight = 10;
-    [SerializeField] private float gravity = 9.81f;
-
-    private Vector2 moveVector;
-    private Vector2 lookVector;
-    private Vector3 rotation;
-    private float verticalVelocity;
-    private CharacterController characterController;
-    private Animator animator;
-
-    private Vector3 moveDir = Vector3.zero;
-
-    void Start()
-    {
-        characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
-    }
-    
-    void Update()
-=======
     public CharacterController controller;
 
     CameraController cameraController;
@@ -36,7 +12,7 @@ public class Player : MonoBehaviour
     public float speed = 6f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
-    PlayerControls inputActions;
+    PlayerInput inputActions;
 
     public bool lockOnInput;
     public bool lockedOn;
@@ -47,10 +23,10 @@ public class Player : MonoBehaviour
     {
         if(inputActions == null)
         {
-            inputActions = new PlayerControls();
-            inputActions.Gameplay.LockOn.performed += i => lockOnInput = true;
-            inputActions.Gameplay.LockOnTargetRight.performed += i => rightStickRightInput = true;
-            inputActions.Gameplay.LockOnTargetLeft.performed += i => rightStickLeftInput = true;
+            inputActions = new PlayerInput();
+            inputActions.CharacterControls.LockOn.performed += i => lockOnInput = true;
+            inputActions.CharacterControls.LockOnTargetRight.performed += i => rightStickRightInput = true;
+            inputActions.CharacterControls.LockOnTargetLeft.performed += i => rightStickLeftInput = true;
         }
 
         inputActions.Enable();
@@ -63,114 +39,22 @@ public class Player : MonoBehaviour
     }
 
     private void FixedUpdate()
->>>>>>> Stashed changes
     {
-        Move();
-        //Run();
-        Rotate();
-    }
-
-    public void OnRun(InputAction.CallbackContext context)
-    {
-        //moveVector = context.ReadValue<Vector2>();
-        if(context.ReadValueAsButton())
-        {
-            animator.SetBool("isRunning", true);
-        }
-        else
-        {
-            animator.SetBool("isRunning", false);
-            //moveVector = context.ReadValue<Vector2>();
-        }
-    }
-
-    /*private void Run()
-    {
-        verticalVelocity += -gravity*Time.deltaTime;
-
-        if(characterController.isGrounded && verticalVelocity < 0)
-        {
-            verticalVelocity = -0.1f*gravity*Time.deltaTime;
-        }
-
-<<<<<<< Updated upstream
-        Vector3 move = transform.right*moveVector.x + transform.forward*moveVector.y + transform.up*verticalVelocity;
-        characterController.Move(move*moveSpeed*Time.deltaTime);
-    }*/
-
-    
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        moveVector = context.ReadValue<Vector2>();
-        if(moveVector.magnitude > 0)
-        {
-            animator.SetBool("isWalking", true);
-        }
-        else
-=======
-        if (direction.magnitude >= 0.1f)
->>>>>>> Stashed changes
-        {
-            animator.SetBool("isWalking", false);
-        }
-
-        moveDir = new Vector3(moveVector.x, 0, moveVector.y);
-        if (moveDir.magnitude > 1.0f)
-        {
-            moveDir = moveDir.normalized;
-        }
-<<<<<<< Updated upstream
-        moveDir = transform.InverseTransformDirection(moveDir);
-        Debug.Log(moveDir);
-        transform.LookAt(moveDir);
-
-    }
-
-    private void Move()
-    {
-        verticalVelocity += -gravity*Time.deltaTime;
-
-        if(characterController.isGrounded && verticalVelocity < 0)
-        {
-            verticalVelocity = -0.1f*gravity*Time.deltaTime;
-        }
-
-        Vector3 move = transform.right*moveVector.x + transform.forward*moveVector.y + transform.up*verticalVelocity;
-        characterController.Move(move*moveSpeed*Time.deltaTime);
         
-        //transform.rotation = Quaternion.LookRotation(move);
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-    }
-
-    public void OnLook(InputAction.CallbackContext context)
-    {
-        lookVector = context.ReadValue<Vector2>();
-/*         Vector3 currPosition = transform.position;
-        Vector3 newPos = new Vector3(moveVector.x, 0, moveVector.y);
-        Vector3 posToLookAt = currPosition + newPos; */
-
-        //transform.LookAt(posToLookAt);
-    }
-
-    public void Rotate()
-    {
-        rotation.y += lookVector.x*lookSensitivity*Time.deltaTime;
-        transform.localEulerAngles = rotation;
-    }
-
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        if(characterController.isGrounded && context.performed)
+        if (direction.magnitude >= 0.1f)
         {
-            animator.Play("Jump");
-            //Jump();
-        }
-    }
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-    private void Jump()
-    {
-        verticalVelocity = Mathf.Sqrt(jumpHeight*gravity);
-=======
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+        }
+        
 
         float horizontalMouse = Input.GetAxisRaw("Mouse X");
         float verticalMouse = Input.GetAxisRaw("Mouse Y");
@@ -214,6 +98,7 @@ public class Player : MonoBehaviour
         {
             cameraController.crossHair.transform.position = Camera.main.WorldToScreenPoint(cameraController.currentLockOnTarget.transform.position);
             //DEBUG
+            /*
             if(cameraController.rightLockTarget != null)
             {
                 cameraController.rightTargetCrossHair.SetActive(true);
@@ -230,6 +115,7 @@ public class Player : MonoBehaviour
             {
                 cameraController.leftTargetCrossHair.SetActive(false);
             }
+            */
             
             if (rightStickLeftInput) //If user is locked on and flicks stick to left
             {
@@ -258,6 +144,5 @@ public class Player : MonoBehaviour
         
 
         cameraController.SetCameraHeight();
->>>>>>> Stashed changes
     }
 }
