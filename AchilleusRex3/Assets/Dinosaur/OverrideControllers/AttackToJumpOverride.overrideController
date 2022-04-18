@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AttackToJumpOverride
+  m_Controller: {fileID: 9100000, guid: 37aa778c7ed178f4384331616450d859, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 1369745789714782098, guid: 923da24417bde954e8eb93a36c143958, type: 3}
+    m_OverrideClip: {fileID: 1369745789714782098, guid: 923da24417bde954e8eb93a36c143958, type: 3}
+  - m_OriginalClip: {fileID: -5645589696480447187, guid: 923da24417bde954e8eb93a36c143958, type: 3}
+    m_OverrideClip: {fileID: -5645589696480447187, guid: 923da24417bde954e8eb93a36c143958, type: 3}
+  - m_OriginalClip: {fileID: -5260203128266656945, guid: 923da24417bde954e8eb93a36c143958, type: 3}
+    m_OverrideClip: {fileID: -5260203128266656945, guid: 923da24417bde954e8eb93a36c143958, type: 3}
