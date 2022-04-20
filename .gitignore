@@ -70,7 +70,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-Achilleus Rex/Library/
+/Achilleus Rex/Library/
 Achilleus Rex/Temp/
+Achilleus Rex/Logs/
 AchilleusRex2/Library/
 AchilleusRex2/Temp/
+AchilleusRex2/Logs/
+AchilleusRex2/Library/PackageManager/
