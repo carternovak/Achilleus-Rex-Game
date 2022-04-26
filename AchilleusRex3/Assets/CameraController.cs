@@ -73,14 +73,14 @@ public class CameraController : MonoBehaviour
         {
             float velocity = 0;
 
-            Vector3 dir = currentLockOnTarget.transform.position - transform.position;
+            Vector3 dir = currentLockOnTarget.lockOnTransform.transform.position - transform.position;
             dir.Normalize();
             dir.y = 0;
 
             Quaternion targetRotation = Quaternion.LookRotation(dir);
             transform.rotation = targetRotation;
 
-            dir = currentLockOnTarget.transform.position - cameraPivot.position;
+            dir = currentLockOnTarget.lockOnTransform.transform.position - cameraPivot.position;
             dir.Normalize();
 
             targetRotation = Quaternion.LookRotation(dir);
@@ -101,6 +101,7 @@ public class CameraController : MonoBehaviour
         for(int i=0; i< colliders.Length; i++)
         {
             CharacterLock character = colliders[i].GetComponent<CharacterLock>();
+            
 
             if(character != null)
             {
@@ -108,7 +109,7 @@ public class CameraController : MonoBehaviour
                 float distanceFromTarget = Vector3.Distance(target.position, character.transform.position);
                 float viewableAngle = Vector3.Angle(lockTargetDirection, camera.forward);
 
-                if (character.transform.root != target.transform.root && viewableAngle > -90 && viewableAngle < 90 && distanceFromTarget <= maximumLockOnDistance)
+                if (character.lockOnTransform.transform.root != target.transform.root && viewableAngle > -90 && viewableAngle < 90 && distanceFromTarget <= maximumLockOnDistance)
                 {
                     availableTargets.Add(character);
                     Debug.Log("Available Target Found!");

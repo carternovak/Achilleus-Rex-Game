@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
 
         if (lockedOn)
         {
-            cameraController.crossHair.transform.position = Camera.main.WorldToScreenPoint(cameraController.currentLockOnTarget.transform.position);
+            cameraController.crossHair.transform.position = Camera.main.WorldToScreenPoint(cameraController.currentLockOnTarget.lockOnTransform.transform.position);
             //DEBUG
             /*
             if(cameraController.rightLockTarget != null)
