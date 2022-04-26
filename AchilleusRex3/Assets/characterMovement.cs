@@ -55,7 +55,7 @@ public class characterMovement : MonoBehaviour
     void Update()
     {
         handleMovement();
-        handleRotation();
+        //handleRotation(); //don't use more than one rotator for the player! they rotate themselves
     }
 
     void handleRotation()
@@ -118,24 +118,12 @@ public class characterMovement : MonoBehaviour
             movementPressed = false;
         }
 
-        if (Input.GetKey("w"))
-        {
-            movementPressed = true;
-        } 
-        else if (Input.GetKey("a"))
-        {
-            movementPressed = true;
-        } 
-        else if (Input.GetKey("s"))
-        {
-            movementPressed = true;
-        } 
-        else if (Input.GetKey("d"))
+        if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
         {
             movementPressed = true;
         }
 
-        if(characterController.isGrounded && (Input.GetKeyDown("space") || Input.GetKeyDown("joystick button 0")) && (isRunning || isWalking))
+        if (characterController.isGrounded && (Input.GetKeyDown("space") || Input.GetKeyDown("joystick button 0")) && (isRunning || isWalking))
         {
             animator.Play("Jump");
         } 
