@@ -27,6 +27,15 @@ public class AttackTrigger : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.name == "Player")
+        {
+            Debug.Log("Dino can still bite");
+            dinoFacingPlayerInfo(true);
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.name == "Player")

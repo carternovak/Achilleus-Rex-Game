@@ -22,12 +22,16 @@ public class SetAnimationType : MonoBehaviour
 
     private void OnEnable()
     {
+        Dinosaur.dinoAnimInfo += SetAnim;
         enemyFollow.dinoAnimInfo += SetAnim;
+        PlayerCombat.dinoAnimInfo += SetAnim;
     }
 
     private void OnDisable()
     {
+        Dinosaur.dinoAnimInfo -= SetAnim;
         enemyFollow.dinoAnimInfo -= SetAnim;
+        PlayerCombat.dinoAnimInfo -= SetAnim;
     }
 
     

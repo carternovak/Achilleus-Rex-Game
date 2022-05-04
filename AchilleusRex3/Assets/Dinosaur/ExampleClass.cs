@@ -41,4 +41,8 @@ public class ExampleClass : MonoBehaviour
     {
         audioSource.PlayOneShot(sniffClip);
     }
+    public void Death()
+    {
+        audioSource.PlayOneShot(yelpClip);
+    }
 }

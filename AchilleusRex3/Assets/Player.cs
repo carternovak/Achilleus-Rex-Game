@@ -18,6 +18,15 @@ public class Player : MonoBehaviour
     public bool lockedOn;
     public bool rightStickRightInput;
     public bool rightStickLeftInput;
+    int isDeadHash;
+    bool isDead = false;
+    Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        isDeadHash = Animator.StringToHash("IsDead");
+    }
 
     public void OnEnable()
     {
@@ -40,34 +49,38 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+        isDead = animator.GetBool(isDeadHash);
 
-        if (direction.magnitude >= 0.1f)
+        if (!isDead)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
+            Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            if (direction.magnitude >= 0.1f)
+            {
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+                Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            }
+
+
+            float horizontalMouse = Input.GetAxisRaw("Mouse X");
+            float verticalMouse = Input.GetAxisRaw("Mouse Y");
+            //Debug.Log(horizontalMouse + verticalMouse);
+            float delta = Time.fixedDeltaTime;
+            if (cameraController != null)
+            {
+                cameraController.FollowTarget(delta);
+                cameraController.HandleCameraRotation(delta, horizontalMouse, verticalMouse);
+            }
+
+            HandleLockOnInput();
+            //cameraController.HandleLockOn();
         }
-        
-
-        float horizontalMouse = Input.GetAxisRaw("Mouse X");
-        float verticalMouse = Input.GetAxisRaw("Mouse Y");
-        //Debug.Log(horizontalMouse + verticalMouse);
-        float delta = Time.fixedDeltaTime;
-        if (cameraController != null)
-        {
-            cameraController.FollowTarget(delta);
-            cameraController.HandleCameraRotation(delta, horizontalMouse, verticalMouse);
-        }
-
-        HandleLockOnInput();
-        //cameraController.HandleLockOn();
     }
 
     private void HandleLockOnInput()

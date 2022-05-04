@@ -9,7 +9,5 @@ AnimatorOverrideController:
   m_Name: JustIdle
   m_Controller: {fileID: 9100000, guid: 3f5fe9cbc8953b84cb3bf8ca56c24556, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: -5260203128266656945, guid: 6bcc76aebcc27f641a1ba39f7e8e5fe6, type: 3}
-    m_OverrideClip: {fileID: -5260203128266656945, guid: 6bcc76aebcc27f641a1ba39f7e8e5fe6, type: 3}
-  - m_OriginalClip: {fileID: 2834425562706900171, guid: 6bcc76aebcc27f641a1ba39f7e8e5fe6, type: 3}
-    m_OverrideClip: {fileID: -5260203128266656945, guid: 6bcc76aebcc27f641a1ba39f7e8e5fe6, type: 3}
+  - m_OriginalClip: {fileID: 2834425562706900171, guid: 923da24417bde954e8eb93a36c143958, type: 3}
+    m_OverrideClip: {fileID: -8061144669887966914, guid: 923da24417bde954e8eb93a36c143958, type: 3}

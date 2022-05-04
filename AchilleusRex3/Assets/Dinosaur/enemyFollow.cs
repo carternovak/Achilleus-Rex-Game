@@ -13,7 +13,7 @@ public class enemyFollow : MonoBehaviour
     public float _attackDistance = .001f;
     private Vector2 movement;
     public float moveSpeed = 5f;
-    private Animator _animator;
+    //private Animator _animator;
     private AudioSource audioSource;
     [SerializeField] AudioClip audioClip;
     [SerializeField] float aggroDistanceVelocity = 5f;
@@ -34,8 +34,15 @@ public class enemyFollow : MonoBehaviour
     private float lengthOfBite = 2.333f;
     [SerializeField] Transform jumpTarget;
     private Transform[] navMeshTargets = new Transform[2];
+    public Animator _animator;
+    public Transform attackPoint;
+    public float attackRange = .5f;
+    public LayerMask playerLayer;
+    public int attackDamage = 10;
+    private bool playerIsDead = false;
+    private bool dinoIsDead = false;
 
-    
+
 
 
 
@@ -48,6 +55,8 @@ public class enemyFollow : MonoBehaviour
         _animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         dinoAnimInfo(activeIdleIndex);
+        playerLayer |= (1 << 6);
+        playerLayer |= (1 << 3);
         //AnimationEvent ae = new AnimationEvent(); 
         //ae.messageOptions = SendMessageOptions.DontRequireReceiver;
 
@@ -59,31 +68,18 @@ public class enemyFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
     private void FixedUpdate()
-    {        
-        Follow();
-        if (Input.GetButton("Jump")) {
+    {
+        if (!playerIsDead && !dinoIsDead)
+            Follow();
+        if (Input.GetButton("Jump"))
+        {
             Jump();
         }
-             
-    }
 
-    void Rotate() {
-        Vector3 direction = _player.position - transform.position;
-       // Debug.Log(direction);
-        direction.Normalize();
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //angle *=  -1;
-       // transform.Rotate(0f, angle, 0f);
-        
-        rb.rotation = Quaternion.Euler(0f, angle, 0f);
-        
-       // movement = direction;
-        
     }
-     
 
     void Follow()
     {
@@ -93,19 +89,23 @@ public class enemyFollow : MonoBehaviour
         {
             if (distance >= _aggroDistance)
             {
-               // _enemy.velocity *= 2f;
+                // _enemy.velocity *= 2f;
                 dinoAnimInfo(runIndex);
                 //Debug.Log("run velocity: " + navMeshVelocity);
             }
-          //  if (!canBite)
-                _enemy.SetDestination(navMeshTargets[0].position);
+            //  if (!canBite)
+            _enemy.SetDestination(navMeshTargets[0].position);
+
+            if (dinoIsDead)
+                _enemy.isStopped = true;
+
             if (distance < _aggroDistance && distance >= _attackDistance)
             {
                 // 
-              //  _enemy.velocity /= 2f;
-               // Debug.Log("walk velocity: " + navMeshVelocity);
+                //  _enemy.velocity /= 2f;
+                // Debug.Log("walk velocity: " + navMeshVelocity);
                 dinoAnimInfo(walkIndex);
-               // _animator.Play("Roar2");
+                // _animator.Play("Roar2");
                 // audioSource.PlayOneShot(audioClip, .75f);
                 //audioSource.Play();
             }
@@ -116,75 +116,129 @@ public class enemyFollow : MonoBehaviour
                 if (!canBite)
                     dinoAnimInfo(idleIndex);
                 //   Debug.Log("attack distance velocity: " + navMeshVelocity);
-               // _enemy.SetDestination(jumpTarget.position);
+                // _enemy.SetDestination(jumpTarget.position);
                 if (canBite)
                 {
-                    //dinoAnimInfo(attackIndex);
-                    //dinoAnimInfo(jumpIndex);
                     dinoAnimInfo(jumpToAttackIndex);
+                    // Attack();
+                    // _animator.runtimeAnimatorController.
+                    //  _animator.SetTrigger("Attack");
+                    //dinoAnimInfo(attackIndex);                              
+                    //dinoAnimInfo(jumpIndex);
+
+                    //anim override
+                    // dinoAnimInfo(jumpToAttackIndex);
+
+
+
                     Vector3 jumpVector = _player.position - transform.position;
                     //rb.MovePosition(transform.position + jumpVector * Time.deltaTime * moveSpeed * 50f);
                     //_enemy.SetDestination(jumpTarget.position);
                 }
-               // Debug.Log("coroutine has ended");
-               // dinoAnimInfo(roarIndex);
-                            
-                
-              //  Ray ray = new Ray(attackRaycastOrigin.position, Vector3.down); // * 0.5f); // + Vector3.up * 0.5f, Vector3.down);
+                // Debug.Log("coroutine has ended");
+                // dinoAnimInfo(roarIndex);
 
-              //  if (Physics.Raycast(ray, out RaycastHit hit, 10f, layerMask))
-              //  {
-                  //  Debug.Log("hit: " + hit.transform.tag);
-                  //  Debug.DrawRay(attackRaycastOrigin.position, hit.point, Color.green);
-                  //  if (hit.transform.CompareTag("Player"))
-                 //   {
-                 //       Debug.Log("Dino is looking at player");
-                  //  }
-               // }
+
+                //  Ray ray = new Ray(attackRaycastOrigin.position, Vector3.down); // * 0.5f); // + Vector3.up * 0.5f, Vector3.down);
+
+                //  if (Physics.Raycast(ray, out RaycastHit hit, 10f, layerMask))
+                //  {
+                //  Debug.Log("hit: " + hit.transform.tag);
+                //  Debug.DrawRay(attackRaycastOrigin.position, hit.point, Color.green);
+                //  if (hit.transform.CompareTag("Player"))
+                //   {
+                //       Debug.Log("Dino is looking at player");
+                //  }
+                // }
             }
 
-          //  if (!_enemy.isStopped)  //rotate the dino
-           // {
-                var targetPosition = _player.position;
-                var targetPoint = new Vector3(targetPosition.x, transform.position.y, targetPosition.z);
-                var _direction = (targetPoint - transform.position).normalized;
-                var _lookRotation = Quaternion.LookRotation(_direction);
-                // rb.rotation = Quaternion.RotateTowards(transform.rotation, _lookRotation, 360);
+            //  if (!_enemy.isStopped)  //rotate the dino
+            // {
+            var targetPosition = _player.position;
+            var targetPoint = new Vector3(targetPosition.x, transform.position.y, targetPosition.z);
+            var _direction = (targetPoint - transform.position).normalized;
+            var _lookRotation = Quaternion.LookRotation(_direction);
+            // rb.rotation = Quaternion.RotateTowards(transform.rotation, _lookRotation, 360);
+
+            //use this one
+            if (!dinoIsDead)
                 rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, _lookRotation, 360));
 
-          //  }
-                       
+            //  }
+
         }
     }
 
-    
-    void Jump() {
-      //  rb.AddForce(0, 200f, 0, ForceMode.Impulse);
+
+    void Jump()
+    {
+        //  rb.AddForce(0, 200f, 0, ForceMode.Impulse);
     }
 
     public void DinoCanBite(bool bite)
     {
         canBite = bite;
-       // Debug.Log("DinoCanBite called\ncaBite: " + canBite);
+        // Debug.Log("DinoCanBite called\ncaBite: " + canBite);
+    }
+
+    public void PlayerIsDead(bool playerDead)
+    {
+        playerIsDead = playerDead;
+    }
+
+    public void DinoIsDead(bool dinoDead)
+    {
+        dinoIsDead = dinoDead;
     }
 
     private void OnEnable()
     {
         AttackTrigger.dinoFacingPlayerInfo += DinoCanBite;
+        PlayerCombat.playerIsDeadInfo += PlayerIsDead;
+        Dinosaur.dinoIsDeadInfo += DinoIsDead;
     }
 
     private void OnDisable()
     {
         AttackTrigger.dinoFacingPlayerInfo -= DinoCanBite;
+        PlayerCombat.playerIsDeadInfo -= PlayerIsDead;
+        Dinosaur.dinoIsDeadInfo -= DinoIsDead;
     }
 
     private void Growl()
     {
-       // Vector3 jumpVector =  transform.position -_player.position;
-       // rb.MovePosition(transform.position + jumpVector * Time.deltaTime * moveSpeed * 500f);
+        // Vector3 jumpVector =  transform.position -_player.position;
+        // rb.MovePosition(transform.position + jumpVector * Time.deltaTime * moveSpeed * 500f);
         //rb.position = transform.position + jumpVector * Time.deltaTime * moveSpeed * 500f;
         // rb.position = transform.position * Time.deltaTime * moveSpeed * 500f;
         //_enemy.SetDestination(jumpTarget.position);
-       // Debug.Log("JumpGrowl");
-    } 
+        // Debug.Log("JumpGrowl");
+    }
+    public void DinoAttack()
+    {
+         Debug.Log("Dino Attack has been called ");
+        // dinoAnimInfo(jumpToAttackIndex);
+        Collider[] hitPlayer = Physics.OverlapSphere(attackPoint.position, attackRange, playerLayer);
+
+        foreach (Collider knight in hitPlayer)
+        {
+            if (knight.TryGetComponent(out IDamagable hit))
+            {
+                // Debug.Log(knight.name + " hit");
+                hit.Damage();
+            }
+            // Debug.Log(knight.name + " hit");
+            // if (knight != null)
+            // knight.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            // playerHealth
+            //    .TakeDamage(attackDamage);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
 }

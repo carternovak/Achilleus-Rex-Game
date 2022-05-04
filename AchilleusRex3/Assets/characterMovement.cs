@@ -10,6 +10,7 @@ public class characterMovement : MonoBehaviour
 
     int isWalkingHash;
     int isRunningHash;
+    int isDeadHash;
 
     PlayerInput input;
 
@@ -21,6 +22,7 @@ public class characterMovement : MonoBehaviour
     bool runPressed;
     bool run2Pressed;
     bool jumpPressed;
+    bool isDead = false;
     private CharacterController characterController;
 
     void Awake()
@@ -49,12 +51,23 @@ public class characterMovement : MonoBehaviour
 
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
+        isDeadHash = Animator.StringToHash("IsDead");
     }
 
     // Update is called once per frame
     void Update()
     {
-        handleMovement();
+        if (!isDead)
+        {
+            handleMovement();
+           // handleRotation();
+        }
+        else
+        {
+            input.CharacterControls.Disable();
+            characterController.enabled = false;
+        }
+        //handleMovement();
         //handleRotation(); //don't use more than one rotator for the player! they rotate themselves
     }
 
@@ -69,6 +82,7 @@ public class characterMovement : MonoBehaviour
 
     void handleMovement()
     {
+        isDead = animator.GetBool(isDeadHash);
         bool isRunning = animator.GetBool(isRunningHash);
         bool isWalking = animator.GetBool(isWalkingHash);
         //float mag = Mathf.Clamp01(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).sqrMagnitude);
@@ -77,7 +91,7 @@ public class characterMovement : MonoBehaviour
         
         // Issue with movementPressed not being changed
         InputOverride();
-        if (movementPressed && !isWalking)
+        if (movementPressed && !isWalking && !isDead)
         {
             animator.SetBool(isWalkingHash, true);
         }
@@ -98,6 +112,7 @@ public class characterMovement : MonoBehaviour
 
     void InputOverride()
     {
+        isDead = animator.GetBool(isDeadHash);
         bool isRunning = animator.GetBool(isRunningHash);
         bool isWalking = animator.GetBool(isWalkingHash);
         //Debug.Log(characterController.isGrounded);
@@ -123,13 +138,13 @@ public class characterMovement : MonoBehaviour
             movementPressed = true;
         }
 
-        if (characterController.isGrounded && (Input.GetKeyDown("space") || Input.GetKeyDown("joystick button 0")) && (isRunning || isWalking))
+        if (characterController.isGrounded && (Input.GetKeyDown("space") || Input.GetKeyDown("joystick button 0")) && (isRunning || isWalking) && !isDead)
         {
             animator.Play("Jump");
         } 
         // cant use jumpPressed because it keeps jumping
         // as if jumpPressed turns to true and stays true
-        else if(characterController.isGrounded && (Input.GetKeyDown("space") || Input.GetKeyDown("joystick button 0")) && !(isRunning || isWalking))
+        else if(characterController.isGrounded && (Input.GetKeyDown("space") || Input.GetKeyDown("joystick button 0")) && !(isRunning || isWalking) && !isDead)
         {
             animator.Play("StandingJump");
         }
