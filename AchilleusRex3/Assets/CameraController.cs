@@ -68,8 +68,11 @@ public class CameraController : MonoBehaviour
 
             targetRotation = Quaternion.Euler(rotation);
             cameraPivot.localRotation = targetRotation;
-        }
-        else
+        } else if(player.lockedOn == true && currentLockOnTarget == null)
+        {
+            player.lockedOn = false;
+            ClearLockOnTargets();
+        } else
         {
             float velocity = 0;
 
@@ -163,6 +166,7 @@ public class CameraController : MonoBehaviour
         leftLockTarget = null;
         rightLockTarget = null;
 
+        crossHair.SetActive(false);
         //debug
         //leftTargetCrossHair.SetActive(false);
         //rightTargetCrossHair.SetActive(false);

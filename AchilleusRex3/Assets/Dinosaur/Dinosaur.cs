@@ -14,6 +14,7 @@ public class Dinosaur : Enemy, IDamagable
     public delegate void DinoDead(bool dinoIsDead);
     public static event DinoDead dinoIsDeadInfo;
     private bool isDead = false;
+    [SerializeField] SwapDinoToGibs dinoGibberScript;
 
     public int Health { get; set; }
 
@@ -27,6 +28,7 @@ public class Dinosaur : Enemy, IDamagable
 
                 Die();
                 isDead = true;
+                dinoGibberScript.Explode();
             }
         }
     }
